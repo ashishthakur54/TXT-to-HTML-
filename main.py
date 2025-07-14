@@ -12,13 +12,13 @@ from pymongo import MongoClient
 # Initialize MongoDB connection
 MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
-db = client["@THAKUR_CONTACT_BOT"]
-user_collection = db["@THAKUR_CONTACT_BOT"]  
+db = client["sujalbot"]
+user_collection = db["sujalbot"]  
 
 
-OWNER = 7760196814 
-API_ID = os.getenv("API_ID", "23480065")
-API_HASH = os.getenv("API_HASH", "32edb7d7fc1523b436109bff8ea061fc")
+OWNER = 8118667253 
+API_ID = os.getenv("API_ID", "25933223")
+API_HASH = os.getenv("API_HASH", "6ef5a426d85b7f01562a41e6416791d3")
 TOKEN = os.environ["BOT_TOKEN"]
 
 bot = telebot.TeleBot(TOKEN)
@@ -132,7 +132,7 @@ def txt_to_html(txt_path, html_path):
     <button class="tab-button" onclick="showTab('other')">🧩 other</button>
   </div>
   {html_blocks}
-  <div class="footer">ᗪEᐯEᒪOᑭEᗪ ᗷY <a href="t.me/StudyXashish302">ᴹᴿ🌿⃝🅺ιʟͥʟͣᴇᷟʀ✍࿐</a></div>
+  <div class="footer">ᗪEᐯEᒪOᑭEᗪ ᗷY <a href="https://t.me/Lallantoop">𓍯𝙎𝙪𝙟𝙖𝙡⚝</a></div>
   <script>
     function playVideo(url, title) {{
       const player = document.getElementById('player');
@@ -160,8 +160,8 @@ def txt_to_html(txt_path, html_path):
 def start_keyboard():
     keyboard = InlineKeyboardMarkup()
     keyboard.row(
-        InlineKeyboardButton("ＣＨＡＮＮＥＬ", url="https://t.me/StudyXashish"),
-        InlineKeyboardButton("ＯＷＮＥＲ", url="t.me/StudyXashish302")
+        InlineKeyboardButton("ＣＨＡＮＮＥＬ", url="https://t.me/studywithsv"),
+        InlineKeyboardButton("ＯＷＮＥＲ", url="https://t.me/Lallantoop")
     )
     return keyboard
 
@@ -189,15 +189,15 @@ def start_command(message):
         user_collection.insert_one({"_id": user_id})
 
     random_image_url = random.choice([
-        "https://files.catbox.moe/0qnqx0.jpg",
-        "https://files.catbox.moe/lsi9ub.jpg",
-        "https://files.catbox.moe/43j2vv.jpg",
+        "https://envs.sh/Qt9.jpg/IMG20250621443.jpg",
+        "https://envs.sh/Fio.jpg/IMG2025070370.jpg",
+        "https://envs.sh/Fir.jpg/IMG20250703829.jpg",
     ])
     caption = (
         f"**ʜᴇʟʟᴏ {mention}**\n\n"
         f"✿ I am a **Txt To HTML Converter Bot**\n"
         "✿ Use **/html** to convert a .txt file to .html\n\n"
-        "𝐂𝐑𝐄𝐀𝐓𝐎𝐑:- [ᴹᴿ🌿⃝🅺ιʟͥʟͣᴇᷟʀ✍࿐](t.me/StudyXashish302)"
+        "𝐂𝐑𝐄𝐀𝐓𝐎𝐑:- [𓍯𝙎𝙪𝙟𝙖𝙡⚝](http://t.me/Lallantoop)"
     )
     safe_send(bot.send_photo, message.chat.id, photo=random_image_url, caption=caption, parse_mode="Markdown", reply_markup=start_keyboard())
 
@@ -291,7 +291,7 @@ def handle_txt_file(message: Message):
             if wait_msg:
                 safe_send(bot.delete_message, message.chat.id, wait_msg.message_id)
             html_file.seek(0)
-            safe_send(bot.send_document, -1002529253938, html_file,
+            safe_send(bot.send_document, -1002799217873, html_file,
                 caption=f"📥 New TXT ➜ HTML Received\n👤 From: [{message.from_user.first_name}](tg://user?id={message.from_user.id})\n📝 File: `{original_file_name}`",
                 parse_mode="Markdown")
         os.remove(txt_path)
