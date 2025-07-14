@@ -12,11 +12,11 @@ from pymongo import MongoClient
 # Initialize MongoDB connection
 MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
-db = client["sujalbot"]
-user_collection = db["sujalbot"]  
+db = client["@THAKUR_CONTACT_BOT"]
+user_collection = db["@THAKUR_CONTACT_BOT"]  
 
 
-OWNER = 8118667253 
+OWNER = 7760196814 
 API_ID = os.getenv("API_ID", "23480065")
 API_HASH = os.getenv("API_HASH", "32edb7d7fc1523b436109bff8ea061fc")
 TOKEN = os.environ["BOT_TOKEN"]
